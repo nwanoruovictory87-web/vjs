@@ -1,0 +1,18 @@
+<body>
+  <div class="root">
+    <div class="parent">
+      <h2 id="count">count 0</h2>
+      <span>
+        <button>Add</button>
+        <button>Subtract</button>
+      </span>
+    </div>
+  </div>
+</body>
+<script>
+  let count = 0;
+  const countRef = document.getElementById("count");
+  setInterval(() => {
+    countRef.textContent = `count ${(count += 1)}`;
+  }, 1000);
+</script>
