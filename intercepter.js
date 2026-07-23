@@ -1,6 +1,8 @@
 const http = require("http");
+const fs = require("fs");
 const frontendServer = require("./client/frontend");
 const backendServer = require("./server/backend");
+//devTool restart server on close
 const intercepterServer = http.createServer();
 const path = require("path");
 intercepterServer.addListener("request", async (req, res) => {
@@ -16,8 +18,9 @@ intercepterServer.addListener("request", async (req, res) => {
 });
 
 intercepterServer.listen(8000, () => {
-  console.log("vjs intercepter runing on port 8000");
+  process.stdout.write("vjs intercepter runing on port 8000 \n");
 });
+//listin for errors emited from the process
 process.on("uncaughtException", (error) => {
-  console.error("vjs encounted :", error);
+  process.stderr.write(`vjs encounted : ${error} \n`);
 });

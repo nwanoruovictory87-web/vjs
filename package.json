@@ -5,7 +5,8 @@
   "main": "intercepter.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node intercepter.js"
+    "start": "node intercepter.js",
+    "devMode": "node restartVjs.js"
   },
   "keywords": [],
   "author": "victory nwanoruo",
