@@ -1,8 +1,8 @@
 const http = require("http");
 const frontendServer = require("./client/frontend");
-const backendServer = require("./servers/backend");
+const backendServer = require("./server/backend");
 const intercepterServer = http.createServer();
-
+const path = require("path");
 intercepterServer.addListener("request", async (req, res) => {
   try {
     if (req.url.includes("//") && req.url.split("//")[0] === "") {
