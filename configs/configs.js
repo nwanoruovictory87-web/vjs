@@ -70,7 +70,7 @@ const FULLDOM = async (heads, style, body, script) => {
     throw Error(error);
   }
 };
-//dom method that helps struckture the hold dom together altomaticaly
+//dom method that helps structure the hole dom together altomaticaly
 const DOMTEMPLATE = {
   headsTemplate: async (headsTemplatesPaths) => {
     if (!headsTemplatesPaths || [...headsTemplatesPaths].length === 0)
