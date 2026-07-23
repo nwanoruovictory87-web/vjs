@@ -1,10 +1,3 @@
-const http = require("http");
-const backendServer = http.createServer();
+const backendServer = async (req, res) => {};
 
-backendServer.listen(5000, () => {
-  console.log("backend vjs server runing on port 500");
-});
-
-process.on("uncaughtException", (error) => {
-  console.error("vjs backend encounted :", error);
-});
+module.exports = backendServer;

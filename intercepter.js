@@ -7,13 +7,7 @@ const intercepterServer = http.createServer();
 intercepterServer.addListener("request", async (req, res) => {
   try {
     if (req.url === "/") {
-      const conectFrontend = await fetch(`http://localhost:3000${req.url}`, {
-        method: `${req.method}`,
-      });
-      const file = (await conectFrontend.blob()).text().then((e) => {
-        res.writeHead(200, { "content-type": "text/html" });
-        res.end(`${e}`);
-      });
+      frontendServer(req, res);
     }
   } catch (error) {
     throw Error(error);
