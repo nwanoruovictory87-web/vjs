@@ -6,7 +6,7 @@ const bodyTemplate = async (filename) => {
       `./client/views/${filename}`,
       "utf-8",
     );
-    return `<body>${body}</body>`;
+    return body;
   } catch (error) {
     throw Error(error);
   }
@@ -18,7 +18,7 @@ const stylesTemplate = async (filename) => {
       `./client/styles/${filename}`,
       "utf-8",
     );
-    return `<style>${styles}</style>`;
+    return styles;
   } catch (error) {
     throw Error(error);
   }
@@ -30,7 +30,7 @@ const scriptsTemplate = async (filename) => {
       `./client/scripts/${filename}`,
       "utf-8",
     );
-    return `<script>${scripts}</script>`;
+    return scripts;
   } catch (error) {
     throw Error(error);
   }
@@ -42,7 +42,7 @@ const headsTemplate = async (filename) => {
       `./client/heads/${filename}`,
       "utf-8",
     );
-    return `<head>${heads}</head>`;
+    return heads;
   } catch (error) {
     throw Error(error);
   }
@@ -52,10 +52,10 @@ const FULLDOM = async (heads, style, body, script) => {
   try {
     const documentObjectModel = `<!DOCTYPE html>
     <html lang="en">
-    ${heads}
-    ${style}
-    ${body}
-    ${script}
+    <head>${heads}</head>
+    <style>${style}</style>
+    <body>${body}</body>
+    <script>${script}</script>
     </html>
     `;
     return documentObjectModel;
