@@ -70,10 +70,64 @@ const FULLDOM = async (heads, style, body, script) => {
     throw Error(error);
   }
 };
+//dom method that helps struckture the hold dom together altomaticaly
+const DOMTEMPLATE = {
+  headsTemplate: async ([...headsTemplatesPaths]) => {
+    if (!headsTemplatesPaths || headsTemplatesPaths.length === 0) return false;
+    const templates = [];
+    for (const path of headsTemplatesPaths) {
+      const template = await headsTemplate(path);
+      if (template) {
+        templates.push(template);
+      }
+    }
+    let contactinatedTemplate = `${templates.join("")}`;
+    return contactinatedTemplate;
+  },
+  stylesTemplate: async ([...stylesTemplatesPaths]) => {
+    if (!stylesTemplatesPaths || stylesTemplatesPaths.length === 0)
+      return false;
+    const templates = [];
+    for (const path of stylesTemplatesPaths) {
+      const template = await stylesTemplate(path);
+      if (template) {
+        templates.push(template);
+      }
+    }
+    let contactinatedTemplate = `${templates.join("")}`;
+    return contactinatedTemplate;
+  },
+  bodyTemplate: async ([...bodysTemplatesPaths]) => {
+    if (!bodysTemplatesPaths || bodysTemplatesPaths.length === 0) return false;
+    const templates = [];
+    for (const path of bodysTemplatesPaths) {
+      const template = await bodyTemplate(path);
+      if (template) {
+        templates.push(template);
+      }
+    }
+    let contactinatedTemplate = `${templates.join("")}`;
+    return contactinatedTemplate;
+  },
+  scriptsTemplate: async ([...scriptsTemplatesPaths]) => {
+    if (!scriptsTemplatesPaths || scriptsTemplatesPaths.length === 0)
+      return false;
+    const templates = [];
+    for (const path of scriptsTemplatesPaths) {
+      const template = await scriptsTemplate(path);
+      if (template) {
+        templates.push(template);
+      }
+    }
+    let contactinatedTemplate = `${templates.join("")}`;
+    return contactinatedTemplate;
+  },
+};
 module.exports = {
   headsTemplate,
   stylesTemplate,
   bodyTemplate,
   scriptsTemplate,
   FULLDOM,
+  DOMTEMPLATE,
 };

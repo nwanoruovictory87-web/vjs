@@ -7,7 +7,7 @@ intercepterServer.addListener("request", async (req, res) => {
   try {
     if (req.url.includes("//") && req.url.split("//")[0] === "") {
       backendServer(req, res);
-    } else {
+    } else if (req.method === "GET") {
       frontendServer(req, res);
     }
   } catch (error) {
