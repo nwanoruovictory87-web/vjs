@@ -72,10 +72,11 @@ const FULLDOM = async (heads, style, body, script) => {
 };
 //dom method that helps struckture the hold dom together altomaticaly
 const DOMTEMPLATE = {
-  headsTemplate: async ([...headsTemplatesPaths]) => {
-    if (!headsTemplatesPaths || headsTemplatesPaths.length === 0) return false;
+  headsTemplate: async (headsTemplatesPaths) => {
+    if (!headsTemplatesPaths || [...headsTemplatesPaths].length === 0)
+      return false;
     const templates = [];
-    for (const path of headsTemplatesPaths) {
+    for (const path of [...headsTemplatesPaths]) {
       const template = await headsTemplate(path);
       if (template) {
         templates.push(template);
@@ -84,11 +85,11 @@ const DOMTEMPLATE = {
     let contactinatedTemplate = `${templates.join("")}`;
     return contactinatedTemplate;
   },
-  stylesTemplate: async ([...stylesTemplatesPaths]) => {
-    if (!stylesTemplatesPaths || stylesTemplatesPaths.length === 0)
+  stylesTemplate: async (stylesTemplatesPaths) => {
+    if (!stylesTemplatesPaths || [...stylesTemplatesPaths].length === 0)
       return false;
     const templates = [];
-    for (const path of stylesTemplatesPaths) {
+    for (const path of [...stylesTemplatesPaths]) {
       const template = await stylesTemplate(path);
       if (template) {
         templates.push(template);
@@ -97,10 +98,11 @@ const DOMTEMPLATE = {
     let contactinatedTemplate = `${templates.join("")}`;
     return contactinatedTemplate;
   },
-  bodyTemplate: async ([...bodysTemplatesPaths]) => {
-    if (!bodysTemplatesPaths || bodysTemplatesPaths.length === 0) return false;
+  bodyTemplate: async (bodysTemplatesPaths) => {
+    if (!bodysTemplatesPaths || [...bodysTemplatesPaths].length === 0)
+      return false;
     const templates = [];
-    for (const path of bodysTemplatesPaths) {
+    for (const path of [...bodysTemplatesPaths]) {
       const template = await bodyTemplate(path);
       if (template) {
         templates.push(template);
@@ -109,11 +111,11 @@ const DOMTEMPLATE = {
     let contactinatedTemplate = `${templates.join("")}`;
     return contactinatedTemplate;
   },
-  scriptsTemplate: async ([...scriptsTemplatesPaths]) => {
-    if (!scriptsTemplatesPaths || scriptsTemplatesPaths.length === 0)
+  scriptsTemplate: async (scriptsTemplatesPaths) => {
+    if (!scriptsTemplatesPaths || [...scriptsTemplatesPaths].length === 0)
       return false;
     const templates = [];
-    for (const path of scriptsTemplatesPaths) {
+    for (const path of [...scriptsTemplatesPaths]) {
       const template = await scriptsTemplate(path);
       if (template) {
         templates.push(template);
