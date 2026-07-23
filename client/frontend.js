@@ -4,7 +4,7 @@ const { viewTemplate, stylesTemplate } = require("../configs/configs");
 const frontEndServer = async (req, res) => {
   try {
     if (req.url === "/" && req.method === "GET") {
-      const rootHtml = await viewTemplate("home.html");
+      const html = await viewTemplate("home.html");
       res.writeHead(200, { "content-type": "text/html" });
       res.end(`${rootHtml}`);
     }
