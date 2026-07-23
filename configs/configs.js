@@ -50,12 +50,19 @@ const headsTemplate = async (filename) => {
 //full dom
 const FULLDOM = async (heads, style, body, script) => {
   try {
+    const wrapedHeads = heads ? `<head>${heads}</head>` : `<head></head>`;
+    const wrapedStyles = style ? `<style>${style}</style>` : `<style></style>`;
+    const wrapedBody = body ? `<body>${body}</body>` : `<body></body>`;
+    const wrapedScript = script
+      ? `<script>${script}</script>`
+      : `<script></script>`;
+    //dom tembemlate
     const documentObjectModel = `<!DOCTYPE html>
     <html lang="en">
-    <head>${heads}</head>
-    <style>${style}</style>
-    <body>${body}</body>
-    <script>${script}</script>
+    ${wrapedHeads}
+    ${wrapedStyles}
+    ${wrapedBody}
+    ${wrapedScript}
     </html>
     `;
     return documentObjectModel;
